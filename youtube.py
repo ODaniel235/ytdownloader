@@ -24,7 +24,7 @@ def get_info(link, startTime, endTime, format):
         "playlist_items": "0",
         "cookiefile":COOKIES_PATH,
         "source_address": "0.0.0.0",
-        "verbose":true,
+        "verbose":True,
         "allowed_extractors": [
             "youtube",
             "soundcloud",
@@ -102,7 +102,7 @@ def download_video(
             },
         ],
         "noplaylist": True,
-        "verbose":true,
+        "verbose":True,
         "playlist_items": "0",
         "source_address": "0.0.0.0",
     }
