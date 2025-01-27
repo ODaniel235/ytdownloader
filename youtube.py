@@ -1,8 +1,8 @@
 import yt_dlp
 from yt_dlp.utils import download_range_func
 import random
-
-
+import os
+COOKIES_PATH = os.path.join(os.path.dirname(__file__),"cookies.txt")
 def remove_last_substring(string, substring):
     last_index = string.rfind(substring)
     if last_index != -1:
@@ -21,6 +21,7 @@ def get_info(link, startTime, endTime, format):
         "format": f"mp3/bestaudio/best",
         "noplaylist": True,
         "playlist_items": "0",
+        "--cookies":COOKIES_PATH,
         "source_address": "0.0.0.0",
         "allowed_extractors": [
             "youtube",
@@ -76,6 +77,7 @@ def download_video(
 ):
     ydl_opts = {
         "outtmpl": f"temporary_{randID}/%(title).150s.%(ext)s",
+         "--cookies":COOKIES_PATH,
         "format": f"mp3/bestaudio/best",
         "download_ranges": download_range_func(
             None, [(startTime if trim else 0, endTime if trim else 0)]
